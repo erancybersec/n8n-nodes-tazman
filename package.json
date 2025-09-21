@@ -1,0 +1,54 @@
+{
+  "name": "n8n-nodes-tazman",
+  "version": "1.0.0",
+  "description": "Tazman API integration for n8n",
+  "keywords": [
+    "n8n-community-node-package",
+    "tazman",
+    "api"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/tazman/n8n-nodes-tazman",
+  "author": {
+    "name": "Tazman Team",
+    "email": "support@tazman.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tazman/n8n-nodes-tazman.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -s"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/TazmanApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Tazman/Tazman.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^16.18.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-n8n-nodes-base": "^1.11.0",
+    "gulp": "^4.0.2",
+    "n8n-workflow": "*",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
